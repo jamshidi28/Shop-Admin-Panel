@@ -1,4 +1,4 @@
-export function toLocalDataStringShort (date){
+export function toLocalDataString (date){
     const options ={
         year: "numeric",
         month: "long",
@@ -6,3 +6,8 @@ export function toLocalDataStringShort (date){
     }
    return new Date(date).toLocaleDateString("fa-IR",options)
 }
+
+export function toLocalDataStringShort (date){
+    
+    return new Date(date).toLocaleDateString("fa-IR")
+ }
