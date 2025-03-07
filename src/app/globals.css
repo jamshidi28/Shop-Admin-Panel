@@ -56,7 +56,7 @@
     @apply bg-primary-900 text-white;
   }
   .badge--secondary {
-    @apply bg-secondary-600 text-white;
+    @apply bg-secondary-500 text-white ;
   }
   .badge--success {
     @apply bg-green-600 text-white;

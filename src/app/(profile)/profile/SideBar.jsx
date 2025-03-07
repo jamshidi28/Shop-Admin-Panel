@@ -12,7 +12,7 @@ function SideBar() {
     // localStorage.removeItem("userInfo");
     // localStorage.removeItem("cartItems");
     // localStorage.removeItem("token");
-    document.location.href="/";
+    document.location.href = "/";
   }
 
   return (
@@ -27,6 +27,9 @@ function SideBar() {
         </li>
         <li>
           <Link href="/profile"> داشبورد</Link>
+        </li>
+        <li>
+          <Link href="/profile/payments"> سفارشات من</Link>
         </li>
         <li>
           <button onClick={logoutHandler}>خروج از حساب</button>
