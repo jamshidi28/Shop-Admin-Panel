@@ -1,6 +1,6 @@
 "use client";
 import { useAddToCart, useRemoveCart, } from "@/hooks/useCart";
-
+import { toPersianNumbers, toPersianNumbersWithComma } from "@/utils/toPersianNumbers";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "react-hot-toast";
 import { HiOutlineTrash, HiPlus, HiMinus } from "react-icons/hi";
@@ -45,24 +45,24 @@ const removeCartHandler =async ()=>{
               className={`${cartItem.discount ? "line-through text-gray-500" : "font-bold"
                 }`}
             >
-              {(cartItem.price)}
+              {toPersianNumbersWithComma(cartItem.price)}
             </span>
           </div>
           {!!cartItem.discount && (
             <div className="flex items-center gap-x-2 mt-2">
               <p className="font-bold">
                 {" "}
-                {(cartItem.offPrice)}
+                {toPersianNumbersWithComma(cartItem.offPrice)}
               </p>
               <div className="bg-rose-500 px-2 py-0.5 rounded-xl text-white text-sm">
-                {(cartItem.discount)} %
+                {(toPersianNumbers(cartItem.discount))} %
               </div>
             </div>
           )}
         </div>
 
         <span className="border-r-2 pr-2">
-          تعداد : {(cartItem.quantity)}
+          تعداد : {(toPersianNumbers(cartItem.quantity))}
         </span>
         <div className="flex gap-x-3">
           <button

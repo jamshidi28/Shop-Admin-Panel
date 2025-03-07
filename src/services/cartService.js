@@ -6,3 +6,5 @@ export function addToCart(productId) {
 export function removeCart(productId) {
   return http.post("/cart/remove", { productId }).then(({ data }) => data.data);
 }
+
+
