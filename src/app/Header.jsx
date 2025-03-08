@@ -7,7 +7,7 @@ function Header() {
     const { user, cart } = data || {}
     // console.log(data)
     return (
-        <header className={`shadow-md mb-10 sticky top-0 transition-all duration-200 ${isLoading ? "blur-sm opacity-80":"blur-0 opacity-100"}`}>
+        <header className={`shadow-md mb-10 sticky top-0 transition-all bg-white duration-200 ${isLoading ? "blur-sm opacity-80":"blur-0 opacity-100"}`}>
             <nav >
                 <ul className="flex justify-between container items-center xl:max-w-screen-xl py-2 ">
                     <li>

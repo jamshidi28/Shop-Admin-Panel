@@ -6,13 +6,19 @@ import queryString from 'query-string';
 import Link from 'next/link';
 import { toLocalDataStringShort } from '@/utils/toLocalDate';
 import AddToCart from './[slug]/AddToCart';
+import LikeProduct from './LikeProduct';
+import { cookies } from 'next/headers'
+import { toStringCookies } from '@/utils/toStringCookies';
 
+export const dynamic = "force-dynamic";
 async function Product({ searchParams }) {
   // const { products } = await getProducts(queryString.stringify(searchParams));
   // const { categories } = await getCategories();
   // console.log(queryString.stringify(searchParams))
-
-  const productsPromise = getProducts(queryString.stringify(searchParams));
+  const cookieStore = cookies();
+  // console.log(toStringCookies(cookieStore))
+  const strCookies = toStringCookies(cookieStore);
+  const productsPromise = getProducts(queryString.stringify(searchParams),strCookies);
   const categoriesPromise = getCategories();
   const [{ products }, { categories }] = await Promise.all([productsPromise, categoriesPromise])
 
@@ -36,6 +42,7 @@ async function Product({ searchParams }) {
                   </div>
                   <Link className='text-primary-900  '
                   href={`products/${product.slug}`}>مشاهده محصول</Link>
+                  <LikeProduct product={product}/>
                   <AddToCart product={product}/>
                 </div>
               )
