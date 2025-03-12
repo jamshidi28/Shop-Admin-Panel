@@ -1,5 +1,6 @@
+import { addProdcut } from "@/services/adminService";
 import { getProducts } from "@/services/productService";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 export const useGetProducts = ()=>{
     return  useQuery({
@@ -9,3 +10,8 @@ export const useGetProducts = ()=>{
         refetchOnWindowFocus:true
     });
    }
+
+   export const useAddProduct = () => {
+    return useMutation({ mutationFn: addProdcut });
+  };
+  
